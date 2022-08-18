@@ -1,0 +1,28 @@
+% x and y csv read files are real co-ordinates
+% a and b csv files are noisy co-ordinates
+
+x_file=csvread('x(2).csv');
+y_file=csvread('y(2).csv');
+a_file=csvread('a(1).csv');
+b_file=csvread('b(1).csv');
+
+%plotting  the real co-ordinates and noisy co-ordinates of target trajectories.
+plot(x_file, y_file, 'xb');
+hold;
+plot(a_file, b_file, '+r');
+
+%mean value and standard deviation values.
+nx = a_file-x_file;
+ny = b_file-y_file;
+mean(nx)
+mean(ny)
+std(nx)
+std(ny)
+
+% plotting the histogram for nx and ny
+histogram(nx,6)
+histogram(ny,6)
+plot(x_file, y_file, 'xb');
+hold;
+plot(a_file, b_file, '+r');
+title('noise graph of target trajectories')
